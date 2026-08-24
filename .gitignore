@@ -1,0 +1,31 @@
+# ---------------------------------------------------------------------------
+# This repo publishes ONLY the static archive in docs/.
+#
+# The UpdraftPlus backup material below is deliberately excluded: the database
+# dump contains the WordPress user account, a password hash, and security /
+# audit logs, and the plugin + theme trees are third-party GPL source that has
+# no place in a public archive repo. Keep these locally / in private backup.
+#
+# NOTE: every pattern is anchored with a leading "/" so it matches ONLY at the
+# repository root. Unanchored ("uploads/") would also match
+# docs/wp-content/uploads/ and silently strip the site's images and theme CSS.
+# ---------------------------------------------------------------------------
+
+/database/
+/plugins/
+/themes/
+/mu-plugins/
+/uploads/
+/backup_*/
+
+# macOS
+.DS_Store
+._*
+
+# scratch
+*.bak
+/docs.bak/
+
+# local tool config (also covered by the global gitignore; pinned here so it
+# holds for any clone of this repo)
+.claude/settings.local.json
