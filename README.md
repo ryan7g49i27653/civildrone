@@ -40,12 +40,22 @@ python3 -m http.server 8000 --directory docs
 
 ## What was changed
 
-See [ARCHIVE-REPORT.md](ARCHIVE-REPORT.md) for the full record of what was
-removed, rewritten, and what could not be preserved.
-
 Visual design and page content are unchanged. The only removals are WordPress
 plumbing that cannot function without PHP, and third-party embeds whose
-services no longer exist.
+services no longer exist:
+
+- WordPress `<head>` metadata — RSD, pingback, shortlink, REST API and oEmbed
+  discovery links, RSS links, emoji detection, speculation-rules prefetch
+- Comment forms and login links (comment submission required an account even
+  when the site was live); the existing comments are preserved as static text
+- Tracking beacons and defunct embeds — gigcount, ReverbNation, Nimbit,
+  Facebook Like — each replaced with an inert placeholder
+- All absolute `civildrone.net` URLs rewritten to relative paths
+- jQuery and the Droid Serif webfont self-hosted; both previously loaded over
+  plain `http://` and would be blocked as mixed content on HTTPS
+
+The site makes no requests to `civildrone.net`. The only remote resource is a
+YouTube embed.
 
 ## Not included
 
